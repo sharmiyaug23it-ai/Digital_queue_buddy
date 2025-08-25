@@ -1,0 +1,215 @@
+/* ================= GLOBAL ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #93f8ff 0%, #66a6ff 100%);
+  color: #1e293b;
+  -webkit-font-smoothing: antialiased;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ================= HEADER ================= */
+.topbar {
+  padding: 1.25rem 1rem;
+  background: rgba(255, 255, 255, 0.25);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  text-align: center;
+  animation: fadeDown 0.6s ease;
+}
+
+.topbar h1 {
+  margin: 0;
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #2563eb, #06b6d4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.topbar p {
+  margin: 0.25rem 0 0;
+  color: #334155;
+  font-size: 0.95rem;
+}
+
+/* ================= CONTENT ================= */
+.content {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  animation: fadeUp 0.8s ease;
+}
+
+/* ================= CARD ================= */
+.card {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+  padding: 24px;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  animation: fadeIn 0.9s ease;
+}
+
+.card h2 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #1e293b;
+}
+
+.card:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 14px 40px rgba(0, 0, 0, 0.28);
+}
+
+/* ================= FORM ================= */
+label {
+  display: block;
+  font-size: 0.9rem;
+  color: #1e293b;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+input {
+  width: 100%;
+  margin-top: 0.4rem;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid rgba(209, 213, 219, 0.6);
+  border-radius: 12px;
+  outline: none;
+  background: rgba(255, 255, 255, 0.6);
+  transition: all 0.25s ease;
+}
+
+input:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+}
+
+/* ================= BUTTON ================= */
+button {
+  margin-top: 1rem;
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(135deg, #2563eb, #06b6d4);
+  color: white;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37, 99, 235, 0.35);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* ================= LIST ================= */
+.list {
+  margin: 0.75rem 0 0;
+  padding-left: 1.2rem;
+  list-style: none;
+}
+
+.list li {
+  background: rgba(255, 255, 255, 0.25);
+  margin: 0.6rem 0;
+  padding: 0.7rem 0.9rem;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  animation: slideUp 0.4s ease;
+}
+
+.list li strong {
+  color: #2563eb;
+  margin-right: 6px;
+}
+
+/* Special Update & Delete Buttons */
+.list button {
+  margin-left: 8px;
+  padding: 0.4rem 0.8rem;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.list button:nth-child(2) {
+  background: linear-gradient(135deg, #facc15, #f59e0b);
+  color: #1e293b;
+}
+
+.list button:nth-child(3) {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #fff;
+}
+
+/* ================= ANIMATIONS ================= */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .content {
+    grid-template-columns: 1fr;
+  }
+}
+.highlight-me {
+  background: rgba(0, 255, 136, 0.1);
+  border-left: 4px solid #10b981;
+  padding: 6px;
+  border-radius: 8px;
+}
+.tag {
+  font-size: 0.8rem;
+  color: #10b981;
+  margin-left: 6px;
+  font-weight: bold;
+}
